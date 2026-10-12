@@ -1,0 +1,42 @@
+{
+  "seed": 20261009,
+  "inbox_triage": {
+    "source": "mteb/banking77",
+    "cached_file": "data/public_benchmarks/source_cache/banking77-test.parquet",
+    "bytes": 91367,
+    "sha256": "9575f636fdeae0c94a0f3f2d926ca8f9a2833b998cf94108936dfd5d72322bf9",
+    "cases": 154,
+    "classes": 77,
+    "sampling": "two test examples per label"
+  },
+  "reranking": {
+    "source": "tasksource/esci",
+    "cached_file": "data/public_benchmarks/source_cache/esci-test-shard-0000.parquet",
+    "bytes": 160546742,
+    "sha256": "01b0da5ffc4d8e414ae1d04e98c89bd06ebb35196796de1fd99032a775b04a8e",
+    "cases": 50,
+    "candidates_per_case": 10,
+    "eligible_queries_in_shard": 1855,
+    "sampling": "50 US queries with >=10 products and both Exact and Irrelevant; 10 products per query"
+  },
+  "llm_evals": {
+    "source": "cais/mmlu",
+    "cached_file": "data/public_benchmarks/source_cache/mmlu-all-test.parquet",
+    "bytes": 3504718,
+    "sha256": "74a41822ce7d3def56e1682f958469c04642a5336a5ce912fa375fdb90fb25d7",
+    "cases": 200,
+    "subjects": {
+      "abstract_algebra": 20,
+      "anatomy": 20,
+      "business_ethics": 20,
+      "college_computer_science": 20,
+      "conceptual_physics": 20,
+      "high_school_psychology": 20,
+      "international_law": 20,
+      "machine_learning": 20,
+      "professional_medicine": 20,
+      "world_religions": 20
+    },
+    "sampling": "20 test questions from each of 10 fixed subjects"
+  }
+}

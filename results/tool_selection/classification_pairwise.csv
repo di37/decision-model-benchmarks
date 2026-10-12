@@ -1,0 +1,7 @@
+left,right,shared_cases,both_correct,left_correct_right_wrong,left_wrong_right_correct,both_wrong,p_exact_two_sided,p_holm
+clef-flash,clm,200,129,68,2,1,4.211447813748381e-18,2.1057239068741906e-17
+clef-flash,jev,200,197,0,3,0,0.25,0.25
+clef-flash,laya,200,186,11,2,1,0.0224609375,0.044921875
+clm,jev,200,131,0,69,0,3.3881317890172014e-21,2.0328790734103208e-20
+clm,laya,200,124,7,64,5,1.2596743309903347e-12,5.038697323961339e-12
+jev,laya,200,188,12,0,0,0.00048828125,0.00146484375

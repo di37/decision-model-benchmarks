@@ -1,0 +1,8 @@
+.env
+.pytest_cache/
+__pycache__/
+*.py[cod]
+.venv/
+data/public_benchmarks/source_cache/
+data/tool_selection/source_cache/
+*.jsonl.tmp

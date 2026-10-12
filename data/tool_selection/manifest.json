@@ -1,0 +1,23 @@
+{
+  "benchmark": "BFCL v3 multiple",
+  "case_count": 200,
+  "sources": {
+    "inputs": {
+      "url": "https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard/resolve/main/BFCL_v3_multiple.json",
+      "sha256": "aef168155ebd74b7ac2401198b201343bc7d16d7a3d7e0d4e6d8ee82c6969b2a",
+      "bytes": 316583
+    },
+    "possible_answers": {
+      "url": "https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard/resolve/main/possible_answer/BFCL_v3_multiple.json",
+      "sha256": "244e00ce9395df948bcafc7bee64e8f9c87ef70887587d83cae45b13699f3047",
+      "bytes": 32254
+    }
+  },
+  "attribution": {
+    "name": "Berkeley Function Calling Leaderboard (BFCL)",
+    "creator": "Gorilla LLM / UC Berkeley",
+    "dataset_repository": "https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard",
+    "project": "https://gorilla.cs.berkeley.edu/leaderboard.html"
+  },
+  "normalization": "Aligned BFCL_v3_multiple inputs and possible answers by ordered ID; flattened nested conversation messages; retained candidate names, descriptions, parameter schemas, and expected function name."
+}

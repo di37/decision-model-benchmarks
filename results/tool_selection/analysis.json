@@ -1,0 +1,70 @@
+{
+  "classification_pairwise_mcnemar": [
+    {
+      "left": "clef-flash",
+      "right": "clm",
+      "shared_cases": 200,
+      "both_correct": 129,
+      "left_correct_right_wrong": 68,
+      "left_wrong_right_correct": 2,
+      "both_wrong": 1,
+      "p_exact_two_sided": 4.211447813748381e-18,
+      "p_holm": 2.1057239068741906e-17
+    },
+    {
+      "left": "clef-flash",
+      "right": "jev",
+      "shared_cases": 200,
+      "both_correct": 197,
+      "left_correct_right_wrong": 0,
+      "left_wrong_right_correct": 3,
+      "both_wrong": 0,
+      "p_exact_two_sided": 0.25,
+      "p_holm": 0.25
+    },
+    {
+      "left": "clef-flash",
+      "right": "laya",
+      "shared_cases": 200,
+      "both_correct": 186,
+      "left_correct_right_wrong": 11,
+      "left_wrong_right_correct": 2,
+      "both_wrong": 1,
+      "p_exact_two_sided": 0.0224609375,
+      "p_holm": 0.044921875
+    },
+    {
+      "left": "clm",
+      "right": "jev",
+      "shared_cases": 200,
+      "both_correct": 131,
+      "left_correct_right_wrong": 0,
+      "left_wrong_right_correct": 69,
+      "both_wrong": 0,
+      "p_exact_two_sided": 3.3881317890172014e-21,
+      "p_holm": 2.0328790734103208e-20
+    },
+    {
+      "left": "clm",
+      "right": "laya",
+      "shared_cases": 200,
+      "both_correct": 124,
+      "left_correct_right_wrong": 7,
+      "left_wrong_right_correct": 64,
+      "both_wrong": 5,
+      "p_exact_two_sided": 1.2596743309903347e-12,
+      "p_holm": 5.038697323961339e-12
+    },
+    {
+      "left": "jev",
+      "right": "laya",
+      "shared_cases": 200,
+      "both_correct": 188,
+      "left_correct_right_wrong": 12,
+      "left_wrong_right_correct": 0,
+      "both_wrong": 0,
+      "p_exact_two_sided": 0.00048828125,
+      "p_holm": 0.00146484375
+    }
+  ]
+}

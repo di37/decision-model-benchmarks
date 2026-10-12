@@ -1,0 +1,154 @@
+{"id": "banking77-getting_spare_card-2", "text": "How would I go about getting a second card?", "expected": "getting_spare_card"}
+{"id": "banking77-pending_cash_withdrawal-1", "text": "I am still waiting for a cash withdrawal to show", "expected": "pending_cash_withdrawal"}
+{"id": "banking77-request_refund-1", "text": "Get an item refund", "expected": "request_refund"}
+{"id": "banking77-pending_card_payment-1", "text": "How long do card transactions take to clear?", "expected": "pending_card_payment"}
+{"id": "banking77-card_acceptance-2", "text": "Where should my card work?", "expected": "card_acceptance"}
+{"id": "banking77-unable_to_verify_identity-1", "text": "I am experiencing difficulty providing my identity.", "expected": "unable_to_verify_identity"}
+{"id": "banking77-card_not_working-1", "text": "My card doesn't accept any transaction at all. What's wrong??", "expected": "card_not_working"}
+{"id": "banking77-apple_pay_or_google_pay-1", "text": "How do I get the Top Up feature on my apple watch working?", "expected": "apple_pay_or_google_pay"}
+{"id": "banking77-verify_my_identity-1", "text": "What do you need so I can verify my identity?", "expected": "verify_my_identity"}
+{"id": "banking77-declined_cash_withdrawal-2", "text": "Why was I declined getting cash?", "expected": "declined_cash_withdrawal"}
+{"id": "banking77-age_limit-2", "text": "I am only 17. Can I make an account?", "expected": "age_limit"}
+{"id": "banking77-card_arrival-2", "text": "I still don't have my card after 2 weeks.  What should I do?", "expected": "card_arrival"}
+{"id": "banking77-unable_to_verify_identity-2", "text": "for some reason I am having a problem with verifying my identity.", "expected": "unable_to_verify_identity"}
+{"id": "banking77-transaction_charged_twice-2", "text": "I got double charged for a payment so how do I fix that?", "expected": "transaction_charged_twice"}
+{"id": "banking77-disposable_card_limits-2", "text": "What can I use a virtual disposable card for?", "expected": "disposable_card_limits"}
+{"id": "banking77-card_payment_not_recognised-1", "text": "There are some strange charges on my card that I didn't make from a few days ago.  Is my card stolen and if so should I cancel it?  Will I get refunded the charges?", "expected": "card_payment_not_recognised"}
+{"id": "banking77-automatic_top_up-2", "text": "Do you have any limit on the auto top-up?", "expected": "automatic_top_up"}
+{"id": "banking77-supported_cards_and_currencies-1", "text": "Will you accept my other card from the U.S.?", "expected": "supported_cards_and_currencies"}
+{"id": "banking77-age_limit-1", "text": "How do I go about setting up an account for my daughter?", "expected": "age_limit"}
+{"id": "banking77-cash_withdrawal_charge-1", "text": "I took cash and got charged a fee", "expected": "cash_withdrawal_charge"}
+{"id": "banking77-verify_top_up-1", "text": "help me find the top-up card's verification code?", "expected": "verify_top_up"}
+{"id": "banking77-disposable_card_limits-1", "text": "Is it possible to make several disposable cards in a day?", "expected": "disposable_card_limits"}
+{"id": "banking77-top_up_limits-1", "text": "Is there a limit to top-up amounts?", "expected": "top_up_limits"}
+{"id": "banking77-fiat_currency_support-2", "text": "Can I exchange to EUR?", "expected": "fiat_currency_support"}
+{"id": "banking77-fiat_currency_support-1", "text": "There is an incoming payment into my account, but it is deactivated. Will they still be processed?", "expected": "fiat_currency_support"}
+{"id": "banking77-top_up_by_bank_transfer_charge-1", "text": "Is it possible to get a transfer from SWIFT?", "expected": "top_up_by_bank_transfer_charge"}
+{"id": "banking77-declined_cash_withdrawal-1", "text": "why couldn't I get cash in the ATM?", "expected": "declined_cash_withdrawal"}
+{"id": "banking77-exchange_rate-2", "text": "What is the base of the exchange rates?", "expected": "exchange_rate"}
+{"id": "banking77-transfer_timing-2", "text": "What is the time frame for a transfer from the US?", "expected": "transfer_timing"}
+{"id": "banking77-contactless_not_working-1", "text": "Do you know why my contactless won't work?", "expected": "contactless_not_working"}
+{"id": "banking77-country_support-1", "text": "I need a card, but I'm in the US at the moment.", "expected": "country_support"}
+{"id": "banking77-compromised_card-2", "text": "I'm not certain, but someone may be using my card.", "expected": "compromised_card"}
+{"id": "banking77-beneficiary_not_allowed-2", "text": "The account transfer I was trying to do failed.", "expected": "beneficiary_not_allowed"}
+{"id": "banking77-transfer_not_received_by_recipient-2", "text": "I transferred the rent payment for my new place a couple days ago but the landlord says it's not there yet, despite showing up as done on my side. I checked the account number I sent it to and it's definitely correct. Can you please verify if the transaction really went through or not?", "expected": "transfer_not_received_by_recipient"}
+{"id": "banking77-transfer_into_account-1", "text": "I don't know what to do. Should I transfer funds. My account is out of money.", "expected": "transfer_into_account"}
+{"id": "banking77-visa_or_mastercard-2", "text": "I like Mastercard better.", "expected": "visa_or_mastercard"}
+{"id": "banking77-topping_up_by_card-2", "text": "My friends want to top up my account", "expected": "topping_up_by_card"}
+{"id": "banking77-card_about_to_expire-1", "text": "Next month my card will expire, do I need to order a new one?", "expected": "card_about_to_expire"}
+{"id": "banking77-cash_withdrawal_charge-2", "text": "When I got cash, I'm pretty sure there was a glitch that overcharged me.", "expected": "cash_withdrawal_charge"}
+{"id": "banking77-change_pin-2", "text": "How do I change my PIN?", "expected": "change_pin"}
+{"id": "banking77-virtual_card_not_working-1", "text": "My virtual card won't work.", "expected": "virtual_card_not_working"}
+{"id": "banking77-top_up_failed-2", "text": "What's the deal? My card was just denied for top up. Why is it not going through?", "expected": "top_up_failed"}
+{"id": "banking77-order_physical_card-1", "text": "How do I get a physical card?", "expected": "order_physical_card"}
+{"id": "banking77-exchange_rate-1", "text": "What are the most current exchange rates?", "expected": "exchange_rate"}
+{"id": "banking77-virtual_card_not_working-2", "text": "My disposable virtual card is broken.", "expected": "virtual_card_not_working"}
+{"id": "banking77-compromised_card-1", "text": "There are transactions I didn't make, someone else must have used my card.", "expected": "compromised_card"}
+{"id": "banking77-transaction_charged_twice-1", "text": "I have a duplicate payment showing up on the app. How do I stop myself being charged for the thing twice?", "expected": "transaction_charged_twice"}
+{"id": "banking77-lost_or_stolen_card-2", "text": "How can I freeze a stolen card?", "expected": "lost_or_stolen_card"}
+{"id": "banking77-declined_card_payment-2", "text": "I have no idea why my card payment did not work.", "expected": "declined_card_payment"}
+{"id": "banking77-activate_my_card-1", "text": "Is there a way my new card can be renewed?", "expected": "activate_my_card"}
+{"id": "banking77-get_physical_card-2", "text": "How do I set-up my PIN for the new card?", "expected": "get_physical_card"}
+{"id": "banking77-failed_transfer-2", "text": "help me with my transfer", "expected": "failed_transfer"}
+{"id": "banking77-wrong_amount_of_cash_received-2", "text": "I got less cash than the one I specified in the ATM", "expected": "wrong_amount_of_cash_received"}
+{"id": "banking77-top_up_by_card_charge-1", "text": "In exchange for top ups will you take fees?", "expected": "top_up_by_card_charge"}
+{"id": "banking77-edit_personal_details-2", "text": "Is it possible to edit my personal details on the app?", "expected": "edit_personal_details"}
+{"id": "banking77-pending_transfer-2", "text": "My transfer is still pending and I know the account numbers are correct.  Please help.", "expected": "pending_transfer"}
+{"id": "banking77-get_disposable_virtual_card-2", "text": "what's the process for getting a disposable virtual card?", "expected": "get_disposable_virtual_card"}
+{"id": "banking77-receiving_money-1", "text": "I get paid in GBP. Should I configure this and if so, where?", "expected": "receiving_money"}
+{"id": "banking77-top_up_failed-1", "text": "I'm pretty sure my top up failed. How do I fix this?", "expected": "top_up_failed"}
+{"id": "banking77-declined_transfer-1", "text": "I can't transfer money from my account.", "expected": "declined_transfer"}
+{"id": "banking77-order_physical_card-2", "text": "Is a non-electronic card available as well", "expected": "order_physical_card"}
+{"id": "banking77-verify_my_identity-2", "text": "What do you need to verify my identity?", "expected": "verify_my_identity"}
+{"id": "banking77-atm_support-2", "text": "Which ATM's accept my card?", "expected": "atm_support"}
+{"id": "banking77-country_support-2", "text": "Can the card be mailed and used in Europe?", "expected": "country_support"}
+{"id": "banking77-apple_pay_or_google_pay-2", "text": "How do I top up? Can I use my apple watch?", "expected": "apple_pay_or_google_pay"}
+{"id": "banking77-edit_personal_details-1", "text": "I need to change my name what do I do?", "expected": "edit_personal_details"}
+{"id": "banking77-getting_virtual_card-1", "text": "I need to reorder my virtual card!", "expected": "getting_virtual_card"}
+{"id": "banking77-passcode_forgotten-2", "text": "Why won't my passcode work?", "expected": "passcode_forgotten"}
+{"id": "banking77-card_about_to_expire-2", "text": "My card is very close to expiring. When can I order a new one and how do I do so?", "expected": "card_about_to_expire"}
+{"id": "banking77-getting_virtual_card-2", "text": "Can I get a copy of the card by email?", "expected": "getting_virtual_card"}
+{"id": "banking77-pending_transfer-1", "text": "I am still waiting for a money transfer to show", "expected": "pending_transfer"}
+{"id": "banking77-verify_source_of_funds-2", "text": "I would like to verify the source of my money", "expected": "verify_source_of_funds"}
+{"id": "banking77-receiving_money-2", "text": "Is it possible for me to get money out in a different currency?", "expected": "receiving_money"}
+{"id": "banking77-lost_or_stolen_card-1", "text": "How do I deal with a stolen card?", "expected": "lost_or_stolen_card"}
+{"id": "banking77-top_up_reverted-2", "text": "Causes of top-up cancellation", "expected": "top_up_reverted"}
+{"id": "banking77-exchange_charge-2", "text": "How much do I have to pay for the exchange fee?", "expected": "exchange_charge"}
+{"id": "banking77-balance_not_updated_after_bank_transfer-1", "text": "Could you please check one of my transfer which i made few hours ago from my UK bank account, as its not showing yet.", "expected": "balance_not_updated_after_bank_transfer"}
+{"id": "banking77-get_disposable_virtual_card-1", "text": "May I get a disposable virtual card as well?", "expected": "get_disposable_virtual_card"}
+{"id": "banking77-transfer_fee_charged-1", "text": "Why was I charged a fee for a transfer?", "expected": "transfer_fee_charged"}
+{"id": "banking77-card_linking-2", "text": "I've received my card so now I need to know how to sync it to the app.", "expected": "card_linking"}
+{"id": "banking77-terminate_account-2", "text": "I would like to delete my account please.", "expected": "terminate_account"}
+{"id": "banking77-get_physical_card-1", "text": "Is PIN delivered separately?", "expected": "get_physical_card"}
+{"id": "banking77-terminate_account-1", "text": "This company sucks! Can you delete my account?", "expected": "terminate_account"}
+{"id": "banking77-direct_debit_payment_not_recognised-2", "text": "I am concerned about the security in my account and would like to make a dispute.", "expected": "direct_debit_payment_not_recognised"}
+{"id": "banking77-beneficiary_not_allowed-1", "text": "Explain why I can't do a transfer to a beneficiary.", "expected": "beneficiary_not_allowed"}
+{"id": "banking77-top_up_by_bank_transfer_charge-2", "text": "Do I get charged if i am getting money?", "expected": "top_up_by_bank_transfer_charge"}
+{"id": "banking77-declined_card_payment-1", "text": "My credit card was declined.", "expected": "declined_card_payment"}
+{"id": "banking77-failed_transfer-1", "text": "Is the system down? I've been trying to do a transfer and have failed?", "expected": "failed_transfer"}
+{"id": "banking77-card_swallowed-2", "text": "I was getting cash and can't get my card back.", "expected": "card_swallowed"}
+{"id": "banking77-card_delivery_estimate-1", "text": "When will my card arrive?", "expected": "card_delivery_estimate"}
+{"id": "banking77-cancel_transfer-1", "text": "Can I cancel my transaction?", "expected": "cancel_transfer"}
+{"id": "banking77-exchange_via_app-2", "text": "Tell me how I can exchange between different currency.", "expected": "exchange_via_app"}
+{"id": "banking77-card_arrival-1", "text": "I'm still waiting for delivery of my new card, why is it taking so long?", "expected": "card_arrival"}
+{"id": "banking77-exchange_charge-1", "text": "My work sends me all over the world, can I get a discount for all the money I have to exchange?", "expected": "exchange_charge"}
+{"id": "banking77-balance_not_updated_after_cheque_or_cash_deposit-2", "text": "How long does it take to process cheque deposits?", "expected": "balance_not_updated_after_cheque_or_cash_deposit"}
+{"id": "banking77-wrong_amount_of_cash_received-1", "text": "The ATM didn't give me the the withdraw amount requested.", "expected": "wrong_amount_of_cash_received"}
+{"id": "banking77-balance_not_updated_after_bank_transfer-2", "text": "I transferred some money but it is yet to arrive.", "expected": "balance_not_updated_after_bank_transfer"}
+{"id": "banking77-wrong_exchange_rate_for_cash_withdrawal-2", "text": "In receiving cash, the wrong exchange rate was used for my transaction.", "expected": "wrong_exchange_rate_for_cash_withdrawal"}
+{"id": "banking77-extra_charge_on_statement-2", "text": "Something went wrong, I was charged an extra pound?", "expected": "extra_charge_on_statement"}
+{"id": "banking77-card_payment_wrong_exchange_rate-2", "text": "This rate is too low. Are you sure your using the right exchange rate.", "expected": "card_payment_wrong_exchange_rate"}
+{"id": "banking77-why_verify_identity-1", "text": "Why do I have to verify my identity?", "expected": "why_verify_identity"}
+{"id": "banking77-why_verify_identity-2", "text": "Why did I need to verfiy my identity?", "expected": "why_verify_identity"}
+{"id": "banking77-cancel_transfer-2", "text": "I made an error in payment yesterday and I need it fixed asap because it's for my rent tomorrow.", "expected": "cancel_transfer"}
+{"id": "banking77-verify_source_of_funds-1", "text": "Why does my money come from?", "expected": "verify_source_of_funds"}
+{"id": "banking77-balance_not_updated_after_cheque_or_cash_deposit-1", "text": "I Submitted a cheque couple days ago, nothing happened to my account yet.Would you please check What could be the possible issue?", "expected": "balance_not_updated_after_cheque_or_cash_deposit"}
+{"id": "banking77-card_delivery_estimate-2", "text": "I need my card as soon as possible.", "expected": "card_delivery_estimate"}
+{"id": "banking77-pending_top_up-2", "text": "Hi. I'm a new customer to your system and I think something isn't working right - or maybe it is. Maybe you can confirm. I tried to top up today (my first time ever) and it's been stuck at \"pending\" for over an hour now. Is it supposed to do this or is there something wrong in the system?", "expected": "pending_top_up"}
+{"id": "banking77-getting_spare_card-1", "text": "Can I have a card after my first one?", "expected": "getting_spare_card"}
+{"id": "banking77-passcode_forgotten-1", "text": "I have forgotten my passcode to access my app", "expected": "passcode_forgotten"}
+{"id": "banking77-top_up_reverted-1", "text": "I'd like to know why my top-up was canceled please.", "expected": "top_up_reverted"}
+{"id": "banking77-visa_or_mastercard-1", "text": "Are both Visa and Mastercard offered?", "expected": "visa_or_mastercard"}
+{"id": "banking77-request_refund-2", "text": "I would appreciate it if I could get an item refunded", "expected": "request_refund"}
+{"id": "banking77-top_up_by_cash_or_cheque-2", "text": "how come i can't find anywhere to load using cash", "expected": "top_up_by_cash_or_cheque"}
+{"id": "banking77-supported_cards_and_currencies-2", "text": "When adding money, what are the currencies you take?", "expected": "supported_cards_and_currencies"}
+{"id": "banking77-extra_charge_on_statement-1", "text": "My statement has a dollar I have been charged showing up on it.", "expected": "extra_charge_on_statement"}
+{"id": "banking77-transfer_timing-1", "text": "What would the approximate delivery date be if I transferred something urgently to China?", "expected": "transfer_timing"}
+{"id": "banking77-declined_transfer-2", "text": "Why did I get a transfer declined?", "expected": "declined_transfer"}
+{"id": "banking77-automatic_top_up-1", "text": "I've tried looking for the auto-top up option on your website and I can't seem to find it. Can you help me?", "expected": "automatic_top_up"}
+{"id": "banking77-reverted_card_payment?-1", "text": "My transaction to pay for an item was returned to my account.", "expected": "reverted_card_payment?"}
+{"id": "banking77-top_up_limits-2", "text": "Is there a limit to how high I can top-up?", "expected": "top_up_limits"}
+{"id": "banking77-topping_up_by_card-1", "text": "Can I give my friends access to my account so they can top it up for me?", "expected": "topping_up_by_card"}
+{"id": "banking77-Refund_not_showing_up-1", "text": "Still waiting on a refund.", "expected": "Refund_not_showing_up"}
+{"id": "banking77-card_not_working-2", "text": "I cannot use my card.", "expected": "card_not_working"}
+{"id": "banking77-activate_my_card-2", "text": "Assist me please with card activation.", "expected": "activate_my_card"}
+{"id": "banking77-card_linking-1", "text": "How do I view the card I received in the app?", "expected": "card_linking"}
+{"id": "banking77-card_payment_fee_charged-2", "text": "Can I check somewhere if there will be a fee on my payment or not? Seems you are charging in some cases, what's the pattern there?", "expected": "card_payment_fee_charged"}
+{"id": "banking77-card_swallowed-1", "text": "The ATM at Metro bank on High St. Kensington swallowed my card. How do I get it back?", "expected": "card_swallowed"}
+{"id": "banking77-pin_blocked-2", "text": "Can you assist me with unblocking my PIN? I put it in wrong too many times.", "expected": "pin_blocked"}
+{"id": "banking77-reverted_card_payment?-2", "text": "Why was my card payment reverted?", "expected": "reverted_card_payment?"}
+{"id": "banking77-card_payment_wrong_exchange_rate-1", "text": "The exchange rate given to me wasn't correct, after i purchased an item", "expected": "card_payment_wrong_exchange_rate"}
+{"id": "banking77-top_up_by_card_charge-2", "text": "What do you charge for top ups?", "expected": "top_up_by_card_charge"}
+{"id": "banking77-atm_support-1", "text": "How can I withdraw money?", "expected": "atm_support"}
+{"id": "banking77-cash_withdrawal_not_recognised-1", "text": "There is an unauthorized cash withdrawal from my account for 500£.  I definitely didn't make this withdrawal.  I need your help.", "expected": "cash_withdrawal_not_recognised"}
+{"id": "banking77-pin_blocked-1", "text": "Can I reactivate my PIN?", "expected": "pin_blocked"}
+{"id": "banking77-wrong_exchange_rate_for_cash_withdrawal-1", "text": "The exchange rate for my withdrawal isn't correct and doesn't match the actual exchange rate.", "expected": "wrong_exchange_rate_for_cash_withdrawal"}
+{"id": "banking77-pending_card_payment-2", "text": "I bought some stuff this morning but the payment shows as pending", "expected": "pending_card_payment"}
+{"id": "banking77-pending_cash_withdrawal-2", "text": "Why do I have a pending cash withdrawal?", "expected": "pending_cash_withdrawal"}
+{"id": "banking77-card_payment_fee_charged-1", "text": "I paid with card and I think there was a fee applied.", "expected": "card_payment_fee_charged"}
+{"id": "banking77-Refund_not_showing_up-2", "text": "Why can't I see a recent refund in my statement?", "expected": "Refund_not_showing_up"}
+{"id": "banking77-card_acceptance-1", "text": "What places can I use my card?", "expected": "card_acceptance"}
+{"id": "banking77-change_pin-1", "text": "I need a new PIN.", "expected": "change_pin"}
+{"id": "banking77-transfer_fee_charged-2", "text": "I got charged and extra fee when I transferred money so why was I charged?", "expected": "transfer_fee_charged"}
+{"id": "banking77-lost_or_stolen_phone-2", "text": "If I was mugged and lost everything, how do I access my account and app?", "expected": "lost_or_stolen_phone"}
+{"id": "banking77-exchange_via_app-1", "text": "I think I want AUD and not GBP, can you help?", "expected": "exchange_via_app"}
+{"id": "banking77-top_up_by_cash_or_cheque-1", "text": "Do you accept checks?", "expected": "top_up_by_cash_or_cheque"}
+{"id": "banking77-transfer_not_received_by_recipient-1", "text": "The transfer I did hasn't arrived", "expected": "transfer_not_received_by_recipient"}
+{"id": "banking77-pending_top_up-1", "text": "Your top-up function isn't working, it still says pending even though I know my card works.", "expected": "pending_top_up"}
+{"id": "banking77-verify_top_up-2", "text": "Why does top-up need verifying?", "expected": "verify_top_up"}
+{"id": "banking77-direct_debit_payment_not_recognised-1", "text": "There is a direct debit that's not mine.", "expected": "direct_debit_payment_not_recognised"}
+{"id": "banking77-card_payment_not_recognised-2", "text": "I know I didn't make this payment showing up on my card, I don't remember this person at all.", "expected": "card_payment_not_recognised"}
+{"id": "banking77-cash_withdrawal_not_recognised-2", "text": "There is an error, the app says I made an ATM withdrawal and I didn't.", "expected": "cash_withdrawal_not_recognised"}
+{"id": "banking77-transfer_into_account-2", "text": "How can I transfer money from an outside bank?", "expected": "transfer_into_account"}
+{"id": "banking77-lost_or_stolen_phone-1", "text": "If my phone is missing, can I block someone from using the app?", "expected": "lost_or_stolen_phone"}
+{"id": "banking77-contactless_not_working-2", "text": "I've been unable to pay contactless with my card for over a week now. Is there a way to fix this issue?", "expected": "contactless_not_working"}

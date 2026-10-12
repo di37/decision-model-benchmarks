@@ -1,0 +1,88 @@
+services:
+  clm-encoder:
+    image: vllm/vllm-openai:v0.19.0
+    container_name: bench-clm-encoder
+    restart: "no"
+    ports:
+      - "127.0.0.1:8090:8000"
+    volumes:
+      - ../../../models/weights/Qwen3-8B:/models/Qwen3-8B:ro
+    ipc: host
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["${BENCH_GPU:-1}"]
+              capabilities: [gpu]
+    command:
+      - /models/Qwen3-8B
+      - --served-model-name
+      - qwen3-8b
+      - --runner
+      - pooling
+      - --host
+      - "0.0.0.0"
+      - --port
+      - "8000"
+      - --dtype
+      - bfloat16
+      - --max-model-len
+      - "2048"
+      - --gpu-memory-utilization
+      - "0.90"
+      - --tensor-parallel-size
+      - "1"
+      - --max-num-seqs
+      - "32"
+      - --max-num-batched-tokens
+      - "8192"
+      - --no-enable-log-requests
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 300s
+
+  clm-api:
+    build:
+      context: .
+    image: local/clm-server:0.1.0
+    container_name: bench-clm-api
+    restart: "no"
+    depends_on:
+      clm-encoder:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:8700:8700"
+    volumes:
+      - ../../../models/weights/CLM-v0.1-8B/CLM_v0.1-8B.pt:/models/CLM_v0.1-8B.pt:ro
+    command:
+      - --port
+      - "8700"
+      - --emb-url
+      - http://clm-encoder:8000/v1/embeddings
+      - --emb-model
+      - qwen3-8b
+      - --max-tokens
+      - "2048"
+      - --ckpt
+      - /models/CLM_v0.1-8B.pt
+      - --device
+      - cpu
+      - --action-cache
+      - "0"
+      - --no-ui
+    healthcheck:
+      test:
+        - CMD
+        - python3
+        - -c
+        - >-
+          import urllib.request;
+          urllib.request.urlopen("http://127.0.0.1:8700/health", timeout=4)
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 120s

@@ -1,0 +1,41 @@
+services:
+  laya:
+    build:
+      context: .
+      args:
+        TORCH_VERSION: "2.11.0"
+        TORCH_INDEX: cu128
+    image: local/laya-server:0.3.21
+    container_name: bench-laya
+    restart: "no"
+    ports:
+      - "127.0.0.1:8004:8000"
+    volumes:
+      - ../../../models/weights/laya:/models/laya:ro
+      - ./server.py:/app/server.py:ro
+    working_dir: /app
+    environment:
+      LAYA_MODEL_PATH: /models/laya
+      LAYA_DEVICE: cuda
+      HF_HUB_OFFLINE: "1"
+      OMP_NUM_THREADS: "4"
+    command: ["uvicorn", "server:app", "--host", "0.0.0.0", "--port", "8000"]
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              device_ids: ["${BENCH_GPU:-1}"]
+              capabilities: [gpu]
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - >-
+          import urllib.request;
+          urllib.request.urlopen("http://127.0.0.1:8000/health", timeout=4)
+      interval: 15s
+      timeout: 5s
+      retries: 20
+      start_period: 120s

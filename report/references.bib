@@ -1,0 +1,241 @@
+% ---------------------------------------------------------------------------
+% Benchmarks and datasets
+% ---------------------------------------------------------------------------
+@inproceedings{casanueva2020banking77,
+  author    = {Casanueva, I{\~n}igo and Tem{\v{c}}inas, Tadas and Gerz, Daniela and Henderson, Matthew and Vuli{\'c}, Ivan},
+  title     = {Efficient Intent Detection with Dual Sentence Encoders},
+  booktitle = {Proceedings of the 2nd Workshop on Natural Language Processing for Conversational {AI}},
+  publisher = {Association for Computational Linguistics},
+  pages     = {38--45},
+  year      = {2020},
+}
+
+@article{reddy2022esci,
+  author  = {Reddy, Chandan K. and M{\`a}rquez, Llu{\'i}s and Valero, Fran and Rao, Nikhil and Zaragoza, Hugo and Bandyopadhyay, Sambaran and Biswas, Arnab and Xing, Anlu and Subbian, Karthik},
+  title   = {Shopping Queries Dataset: A Large-Scale {ESCI} Benchmark for Improving Product Search},
+  journal = {arXiv preprint arXiv:2206.06588},
+  year    = {2022},
+}
+
+@inproceedings{hendrycks2021mmlu,
+  author    = {Hendrycks, Dan and Burns, Collin and Basart, Steven and Zou, Andy and Mazeika, Mantas and Song, Dawn and Steinhardt, Jacob},
+  title     = {Measuring Massive Multitask Language Understanding},
+  booktitle = {International Conference on Learning Representations ({ICLR})},
+  year      = {2021},
+}
+
+@article{patil2023gorilla,
+  author  = {Patil, Shishir G. and Zhang, Tianjun and Wang, Xin and Gonzalez, Joseph E.},
+  title   = {Gorilla: Large Language Model Connected with Massive {APIs}},
+  journal = {arXiv preprint arXiv:2305.15334},
+  year    = {2023},
+}
+
+@misc{gorilla2024bfcl,
+  author       = {{Gorilla LLM, UC Berkeley}},
+  title        = {Berkeley Function Calling Leaderboard ({BFCL}) Dataset, v3 multiple split},
+  howpublished = {\url{https://huggingface.co/datasets/gorilla-llm/Berkeley-Function-Calling-Leaderboard}},
+  year         = {2024},
+  note         = {Accessed: 2026-10-09},
+}
+
+@misc{hf2026banking77,
+  author       = {{MTEB}},
+  title        = {mteb/banking77: {Banking77} test split in parquet form},
+  howpublished = {\url{https://huggingface.co/datasets/mteb/banking77}},
+  year         = {2026},
+  note         = {Accessed: 2026-10-09},
+}
+
+@misc{hf2026esci,
+  author       = {{tasksource}},
+  title        = {tasksource/esci: Shopping Queries ({ESCI}) test split},
+  howpublished = {\url{https://huggingface.co/datasets/tasksource/esci}},
+  year         = {2026},
+  note         = {Accessed: 2026-10-09},
+}
+
+@misc{hf2026mmlu,
+  author       = {{CAIS}},
+  title        = {cais/mmlu: Massive Multitask Language Understanding},
+  howpublished = {\url{https://huggingface.co/datasets/cais/mmlu}},
+  year         = {2026},
+  note         = {Accessed: 2026-10-09},
+}
+
+% ---------------------------------------------------------------------------
+% Evaluated models and serving stack
+% ---------------------------------------------------------------------------
+@misc{cloudflare2026clefflash,
+  author       = {{Cloudflare}},
+  title        = {{CLEF-Flash} model card},
+  howpublished = {\url{https://huggingface.co/Cloudflare/clef-flash}},
+  year         = {2026},
+  note         = {Accessed: 2026-10-11},
+}
+
+@misc{typesafe2026jev,
+  author       = {{TypeSafe}},
+  title        = {Jev hosted {SystemOne} {API}},
+  howpublished = {\url{https://api.typesafe.ai/v1/systemone}},
+  year         = {2026},
+  note         = {Model version reported by the API: jev-1.13.0. Accessed: 2026-10-11},
+}
+
+@misc{convai2026laya,
+  author       = {{ConvAI Innovations}},
+  title        = {Laya model card and laya.serve package, version 0.3.21},
+  howpublished = {\url{https://huggingface.co/convaiinnovations/laya}},
+  year         = {2026},
+  note         = {Accessed: 2026-10-11},
+}
+
+@misc{contrastivelm2026clm,
+  author       = {{Contrastive-LM}},
+  title        = {{CLM-v0.1-8B} model card and contrastive-lm package, version 0.1.0},
+  howpublished = {\url{https://huggingface.co/Contrastive-LM/CLM-v0.1-8B}},
+  year         = {2026},
+  note         = {Accessed: 2026-10-11},
+}
+
+@article{qwen2025qwen3,
+  author  = {{Qwen Team}},
+  title   = {Qwen3 Technical Report},
+  journal = {arXiv preprint arXiv:2505.09388},
+  year    = {2025},
+}
+
+@inproceedings{kwon2023vllm,
+  author    = {Kwon, Woosuk and Li, Zhuohan and Zhuang, Siyuan and Sheng, Ying and Zheng, Lianmin and Yu, Cody Hao and Gonzalez, Joseph E. and Zhang, Hao and Stoica, Ion},
+  title     = {Efficient Memory Management for Large Language Model Serving with {PagedAttention}},
+  booktitle = {Proceedings of the 29th Symposium on Operating Systems Principles ({SOSP})},
+  year      = {2023},
+}
+
+% ---------------------------------------------------------------------------
+% Routing and cascades
+% ---------------------------------------------------------------------------
+@article{chen2023frugalgpt,
+  author  = {Chen, Lingjiao and Zaharia, Matei and Zou, James},
+  title   = {{FrugalGPT}: How to Use Large Language Models While Reducing Cost and Improving Performance},
+  journal = {arXiv preprint arXiv:2305.05176},
+  year    = {2023},
+}
+
+@article{ong2024routellm,
+  author  = {Ong, Isaac and Almahairi, Amjad and Wu, Vincent and Chiang, Wei-Lin and Wu, Tianhao and Gonzalez, Joseph E. and Kadous, M. Waleed and Stoica, Ion},
+  title   = {{RouteLLM}: Learning to Route {LLMs} with Preference Data},
+  journal = {arXiv preprint arXiv:2406.18665},
+  year    = {2024},
+}
+
+% ---------------------------------------------------------------------------
+% Option-order sensitivity
+% ---------------------------------------------------------------------------
+@inproceedings{zheng2024selectors,
+  author    = {Zheng, Chujie and Zhou, Hao and Meng, Fandong and Zhou, Jie and Huang, Minlie},
+  title     = {Large Language Models Are Not Robust Multiple Choice Selectors},
+  booktitle = {International Conference on Learning Representations ({ICLR})},
+  year      = {2024},
+}
+
+@inproceedings{pezeshkpour2024order,
+  author    = {Pezeshkpour, Pouya and Hruschka, Estevam},
+  title     = {Large Language Models Sensitivity to The Order of Options in Multiple-Choice Questions},
+  booktitle = {Findings of the Association for Computational Linguistics: {NAACL} 2024},
+  year      = {2024},
+}
+
+% ---------------------------------------------------------------------------
+% Statistics and metrics
+% ---------------------------------------------------------------------------
+@article{mcnemar1947,
+  author  = {McNemar, Quinn},
+  title   = {Note on the Sampling Error of the Difference Between Correlated Proportions or Percentages},
+  journal = {Psychometrika},
+  volume  = {12},
+  number  = {2},
+  pages   = {153--157},
+  year    = {1947},
+}
+
+@article{dietterich1998tests,
+  author  = {Dietterich, Thomas G.},
+  title   = {Approximate Statistical Tests for Comparing Supervised Classification Learning Algorithms},
+  journal = {Neural Computation},
+  volume  = {10},
+  number  = {7},
+  pages   = {1895--1923},
+  year    = {1998},
+}
+
+@article{holm1979,
+  author  = {Holm, Sture},
+  title   = {A Simple Sequentially Rejective Multiple Test Procedure},
+  journal = {Scandinavian Journal of Statistics},
+  volume  = {6},
+  number  = {2},
+  pages   = {65--70},
+  year    = {1979},
+}
+
+@article{wilson1927,
+  author  = {Wilson, Edwin B.},
+  title   = {Probable Inference, the Law of Succession, and Statistical Inference},
+  journal = {Journal of the American Statistical Association},
+  volume  = {22},
+  number  = {158},
+  pages   = {209--212},
+  year    = {1927},
+}
+
+@book{efron1993bootstrap,
+  author    = {Efron, Bradley and Tibshirani, Robert J.},
+  title     = {An Introduction to the Bootstrap},
+  publisher = {Chapman \& Hall},
+  year      = {1993},
+}
+
+@article{jarvelin2002ndcg,
+  author  = {J{\"a}rvelin, Kalervo and Kek{\"a}l{\"a}inen, Jaana},
+  title   = {Cumulated Gain-Based Evaluation of {IR} Techniques},
+  journal = {ACM Transactions on Information Systems},
+  volume  = {20},
+  number  = {4},
+  pages   = {422--446},
+  year    = {2002},
+}
+
+@inproceedings{burges2005ranknet,
+  author    = {Burges, Chris and Shaked, Tal and Renshaw, Erin and Lazier, Ari and Deeds, Matt and Hamilton, Nicole and Hullender, Greg},
+  title     = {Learning to Rank Using Gradient Descent},
+  booktitle = {Proceedings of the 22nd International Conference on Machine Learning ({ICML})},
+  pages     = {89--96},
+  year      = {2005},
+}
+
+@article{brier1950,
+  author  = {Brier, Glenn W.},
+  title   = {Verification of Forecasts Expressed in Terms of Probability},
+  journal = {Monthly Weather Review},
+  volume  = {78},
+  number  = {1},
+  pages   = {1--3},
+  year    = {1950},
+}
+
+@inproceedings{naeini2015ece,
+  author    = {Naeini, Mahdi Pakdaman and Cooper, Gregory F. and Hauskrecht, Milos},
+  title     = {Obtaining Well Calibrated Probabilities Using {Bayesian} Binning},
+  booktitle = {Proceedings of the 29th {AAAI} Conference on Artificial Intelligence},
+  pages     = {2901--2907},
+  year      = {2015},
+}
+
+@inproceedings{guo2017calibration,
+  author    = {Guo, Chuan and Pleiss, Geoff and Sun, Yu and Weinberger, Kilian Q.},
+  title     = {On Calibration of Modern Neural Networks},
+  booktitle = {Proceedings of the 34th International Conference on Machine Learning ({ICML})},
+  pages     = {1321--1330},
+  year      = {2017},
+}

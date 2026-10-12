@@ -1,0 +1,610 @@
+% ============================================================
+% Isham Rashik — Brand Design System for LaTeX
+% Engineering AI with Clarity
+%
+% Engine: XeLaTeX or LuaLaTeX (fontspec). Tectonic is the default driver.
+% Usage:  \documentclass[11pt,a4paper]{article}
+%         \usepackage{brand}
+%         \brandsetup{title=..., subtitle=..., category=..., version=...}
+% ============================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{brand}[2026/10/12 Isham Rashik brand design system]
+
+% --- Core packages ---
+\RequirePackage{iftex}
+\RequireTUTeX
+\RequirePackage{fontspec}
+\RequirePackage[table]{xcolor}
+\RequirePackage[a4paper,margin=2.5cm,headheight=14pt]{geometry}
+\RequirePackage{etoolbox}
+\RequirePackage{amsmath,amssymb}
+\RequirePackage{graphicx}
+\RequirePackage{float}
+\RequirePackage{array,tabularx,colortbl,booktabs,multirow}
+\RequirePackage{enumitem}
+\RequirePackage{parskip}
+\RequirePackage{microtype}
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\RequirePackage{titlesec}
+\RequirePackage{needspace}
+\RequirePackage[font={small,color=brandgray},labelfont=bf,labelsep=colon]{caption}
+\RequirePackage{listings}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,shapes.misc,calc,fit,backgrounds}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\RequirePackage{fontawesome5}
+\RequirePackage[nottoc,numbib]{tocbibind}
+\RequirePackage[colorlinks=true]{hyperref}
+\RequirePackage[nameinlink,capitalise,noabbrev]{cleveref}
+
+% ============================================================
+% BRAND COLORS
+% ============================================================
+\definecolor{navy}{HTML}{0B1E3D}
+\definecolor{blue}{HTML}{1A56DB}
+\definecolor{teal}{HTML}{0891B2}
+\definecolor{cyan}{HTML}{06B6D4}
+\definecolor{mist}{HTML}{BAE6FD}
+\definecolor{ice}{HTML}{F0F9FF}
+\definecolor{white}{HTML}{FFFFFF}
+\definecolor{brandgray}{HTML}{64748B}
+\definecolor{lightgray}{HTML}{E2E8F0}
+\definecolor{amber}{HTML}{F59E0B}
+\definecolor{green}{HTML}{10B981}
+\definecolor{pink}{HTML}{EC4899}
+\definecolor{codeheader}{HTML}{0F2847}
+\definecolor{codeborder}{HTML}{1E3A5F}
+
+% Callout palette (matches gentle-clues in the Typst skill)
+\definecolor{clue-abstract}{HTML}{209FB5}
+\definecolor{clue-code}{HTML}{7287FD}
+\definecolor{clue-conclusion}{HTML}{DD7878}
+\definecolor{clue-danger}{HTML}{FE640B}
+\definecolor{clue-error}{HTML}{D20F39}
+\definecolor{clue-example}{HTML}{DC8A78}
+\definecolor{clue-experiment}{HTML}{DC8A78}
+\definecolor{clue-goal}{HTML}{E64553}
+\definecolor{clue-idea}{HTML}{DF8E1D}
+\definecolor{clue-info}{HTML}{04A5E5}
+\definecolor{clue-memo}{HTML}{E64553}
+\definecolor{clue-notify}{HTML}{1E66F5}
+\definecolor{clue-question}{HTML}{179299}
+\definecolor{clue-quotation}{HTML}{7287FD}
+\definecolor{clue-success}{HTML}{40A02B}
+\definecolor{clue-task}{HTML}{8839EF}
+\definecolor{clue-tip}{HTML}{179299}
+\definecolor{clue-warning}{HTML}{DF8E1D}
+
+% ============================================================
+% BRAND IDENTITY
+% ============================================================
+\newcommand\brandname{Isham Rashik}
+\newcommand\brandtitle{AI Engineer}
+\newcommand\brandslogan{Engineering AI with Clarity}
+\newcommand\branddescriptor{NLP \textbullet{} Computer Vision \textbullet{} Fine-Tuning \textbullet{} RAG \textbullet{} Agentic AI}
+\newcommand\brandgithub{github.com/di37}
+\newcommand\brandhuggingface{huggingface.co/disham993}
+\newcommand\brandlinkedin{linkedin.com/in/isham-rashik-5a547711b}
+\newcommand\brandlinkedinurl{https://linkedin.com/in/isham-rashik-5a547711b}
+\newcommand\brandlocation{Dubai, UAE}
+
+% ============================================================
+% DOCUMENT METADATA — \brandsetup{key=value,...}
+% ============================================================
+\pgfkeys{
+  /brand/.is family, /brand,
+  title/.store in    = \brand@title,
+  subtitle/.store in = \brand@subtitle,
+  category/.store in = \brand@category,
+  version/.store in  = \brand@version,
+  doctype/.store in  = \brand@doctype,
+  author/.store in   = \brand@author,
+  date/.store in     = \brand@date,
+  title    = {Document Title},
+  subtitle = {},
+  category = {},
+  version  = {},
+  doctype  = {guide},
+  author   = {\brandname},
+  date     = {\today},
+}
+\newcommand\brandsetup[1]{%
+  \pgfkeys{/brand,#1}%
+  \hypersetup{pdftitle={\brand@title}, pdfauthor={\brandname}, pdfsubject={\brand@doctype}}%
+}
+
+% ============================================================
+% TYPOGRAPHY
+% Brand fonts: Sora (display), Plus Jakarta Sans (body), Fira Code (mono).
+% Sora and Plus Jakarta Sans ship as variable fonts, which XeTeX cannot
+% instantiate at multiple weights, so static Inter is preferred for body
+% text and TeX Gyre Heros is the last-resort fallback.
+% ============================================================
+\IfFontExistsTF{Inter}{%
+  \setmainfont{Inter}[Scale=0.95]
+  \setsansfont{Inter}[Scale=0.95]
+  \newfontfamily\brand@displayfont{Inter Display}[Scale=0.95]
+}{%
+  \setmainfont{TeX Gyre Heros}
+  \setsansfont{TeX Gyre Heros}
+  \newfontfamily\brand@displayfont{TeX Gyre Heros}
+}
+\IfFontExistsTF{Fira Code}{%
+  \setmonofont{Fira Code}[Scale=0.85]
+}{%
+  \setmonofont{DejaVu Sans Mono}[Scale=0.85]
+}
+\newcommand\displayfont{\brand@displayfont}
+
+\linespread{1.25}
+\AtBeginDocument{\color{navy}}
+\setlength{\parskip}{0.6em plus 0.2em}
+\setlist{itemsep=0.2em, topsep=0.3em}
+\setlist[itemize]{label=\textcolor{teal}{\textbullet}}
+\setlist[enumerate]{label=\textcolor{teal}{\bfseries\arabic*.}}
+
+\hypersetup{linkcolor=navy, urlcolor=blue, citecolor=teal}
+
+% --- Headings ---
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+\titleformat{\section}
+  {\displayfont\fontsize{20}{24}\selectfont\bfseries\color{navy}}
+  {\thesection}{0.6em}{}
+  [{\vspace{2pt}\color{teal}\titlerule[2pt]}]
+\titlespacing*{\section}{0pt}{18pt}{10pt}
+\titleformat{\subsection}
+  {\displayfont\fontsize{15}{19}\selectfont\bfseries\color{navy}}
+  {\thesubsection}{0.6em}{}
+\titlespacing*{\subsection}{0pt}{14pt}{4pt}
+\titleformat{\subsubsection}
+  {\fontsize{12}{15}\selectfont\bfseries\color{teal}}
+  {\thesubsubsection}{0.6em}{}
+\titlespacing*{\subsubsection}{0pt}{10pt}{2pt}
+% Keep headings with their first block (tcolorbox breaks titlesec's no-break chain)
+\pretocmd{\section}{\Needspace{10\baselineskip}}{}{}
+\pretocmd{\subsection}{\Needspace{7\baselineskip}}{}{}
+\pretocmd{\subsubsection}{\Needspace{5\baselineskip}}{}{}
+
+% --- Captions: tables on top, figures and code at the bottom ---
+\captionsetup[table]{position=top, skip=6pt}
+\captionsetup[figure]{position=bottom, skip=8pt}
+\DeclareCaptionType[fileext=loc, placement=htbp]{codelisting}[Code][List of Code]
+\captionsetup[codelisting]{position=bottom, skip=6pt, hypcap=false}
+\crefname{codelisting}{Code}{Code}
+
+% --- Header and footer (hidden on the title page) ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\color{brandgray}\itshape\brand@title}
+\fancyhead[R]{\footnotesize\color{brandgray}\brandslogan}
+\fancyfoot[L]{\footnotesize\color{brandgray}Created by \brandname}
+\fancyfoot[R]{\footnotesize\color{brandgray}Page \thepage{} / \pageref*{LastPage}}
+\renewcommand\headrule{{\color{lightgray}\hrule height 0.5pt width\headwidth\vskip-0.5pt}}
+\renewcommand\footrule{{\color{lightgray}\hrule height 0.5pt width\headwidth\vskip 3pt}}
+\renewcommand\footrulewidth{0.5pt}
+
+% ============================================================
+% TITLE PAGE — \maketitle
+% ============================================================
+\renewcommand\maketitle{%
+  \begingroup
+  \thispagestyle{empty}%
+  \raggedright
+  \vspace*{\fill}
+  \ifx\brand@category\@empty\else
+    \badge{\brand@category}\par\vspace{8pt}%
+  \fi
+  {\displayfont\fontsize{28}{34}\selectfont\bfseries\color{navy}\brand@title\par}
+  \ifx\brand@subtitle\@empty\else
+    \vspace{4pt}{\fontsize{14}{18}\selectfont\color{teal}\brand@subtitle\par}%
+  \fi
+  \vspace{16pt}
+  {\color{teal}\rule{0.6\linewidth}{2pt}\par}
+  \vspace{16pt}
+  {\color{navy}\textbf{\brand@author} \textperiodcentered{} \brandtitle\\
+   \brandslogan\\
+   \branddescriptor\par}
+  \vspace{8pt}
+  {\small\color{brandgray}%
+   \ifx\brand@version\@empty\else Version: \brand@version{} \textperiodcentered{} \fi
+   \brand@date\par}
+  \vspace*{\fill}
+  {\footnotesize\color{brandgray}%
+   \brandgithub{} \textperiodcentered{} \brandhuggingface\\
+   \brandlinkedin\\
+   \brandlocation\par}
+  \endgroup
+  \newpage
+}
+
+% ============================================================
+% INLINE ELEMENTS
+% ============================================================
+
+% --- Category badge: \badge{NLP} ---
+\newtcbox{\brand@badgebox}{on line, colback=teal, colframe=teal, boxrule=0pt,
+  arc=6pt, left=6pt, right=6pt, top=2pt, bottom=2pt, fontupper=\scriptsize\bfseries\color{white}}
+\newcommand\badge[1]{\brand@badgebox{\MakeUppercase{#1}}}
+
+% --- Inline code: \code{model.fit()} — braces must balance; avoid # and % ---
+\newtcbox{\brand@codebox}{on line, colback=ice, colframe=ice, boxrule=0pt, arc=2pt,
+  left=2pt, right=2pt, top=1pt, bottom=1pt, boxsep=0pt}
+\newcommand\code[1]{\brand@codebox{\ttfamily\color{navy}\detokenize{#1}}}
+
+% --- Metric card: \metric{Accuracy}{94.2\%}[+3.1\%] ---
+\NewDocumentCommand\metric{m m o}{%
+  \tcbox[on line, colback=ice, colframe=lightgray, boxrule=1pt, arc=4pt,
+    left=10pt, right=10pt, top=6pt, bottom=6pt]{%
+    \begin{tabular}{@{}l@{}}
+      {\scriptsize\color{brandgray}\MakeUppercase{#1}}\\[1pt]
+      {\fontsize{18}{20}\selectfont\bfseries\color{navy}#2}%
+      \IfValueT{#3}{\,{\small\color{teal}#3}}
+    \end{tabular}}%
+}
+
+% --- Divider ---
+\newcommand\divider{\par\vspace{8pt}{\color{lightgray}\hrule height 1pt}\vspace{8pt}\par}
+
+% ============================================================
+% CALLOUT BOXES
+% Usage: \begin{tipbox}[Optional Title][optional tcolorbox keys] ... \end{tipbox}
+% ============================================================
+\tcbset{
+  brandclue/.style={
+    enhanced, sharp corners=west, arc=3pt, boxrule=0.6pt,
+    colframe=#1!30!white, colback=#1!3!white,
+    borderline west={3.5pt}{0pt}{#1},
+    colbacktitle=#1!14!white, coltitle=#1!70!black,
+    fonttitle=\bfseries\small,
+    left=10pt, right=10pt, top=6pt, bottom=6pt,
+    toptitle=3pt, bottomtitle=3pt,
+    before skip=10pt, after skip=10pt,
+    unbreakable,
+  },
+}
+
+\NewDocumentCommand\brand@defclue{m m m m}{%
+  \NewDocumentEnvironment{#1box}{ O{#4} O{} }
+    {\begin{tcolorbox}[brandclue=#2, title={#3\enspace ##1}, ##2]}
+    {\end{tcolorbox}}%
+}
+\brand@defclue{abstract}{clue-abstract}{\faFile*}{Abstract}
+\brand@defclue{code}{clue-code}{\faCode}{Code}
+\brand@defclue{conclusion}{clue-conclusion}{\faPuzzlePiece}{Conclusion}
+\brand@defclue{danger}{clue-danger}{\faBolt}{Danger}
+\brand@defclue{error}{clue-error}{\faTimesCircle}{Error}
+\brand@defclue{example}{clue-example}{\faMagic}{Example}
+\brand@defclue{experiment}{clue-experiment}{\faFlask}{Experiment}
+\brand@defclue{goal}{clue-goal}{\faBullseye}{Goal}
+\brand@defclue{idea}{clue-idea}{\faLightbulb}{Idea}
+\brand@defclue{info}{clue-info}{\faInfoCircle}{Info}
+\brand@defclue{memo}{clue-memo}{\faExclamationCircle}{Memo}
+\brand@defclue{notify}{clue-notify}{\faBell}{Notification}
+\brand@defclue{question}{clue-question}{\faQuestionCircle}{Question}
+\brand@defclue{success}{clue-success}{\faCheckCircle}{Success}
+\brand@defclue{tip}{clue-tip}{\faFire}{Tip}
+\brand@defclue{warning}{clue-warning}{\faExclamationTriangle}{Warning}
+
+% Task box has an auto-incrementing counter: "Task 1", "Task 2", ...
+\newcounter{brandtask}
+\NewDocumentEnvironment{taskbox}{ o O{} }
+  {\stepcounter{brandtask}%
+   \begin{tcolorbox}[brandclue=clue-task,
+     title={\faTasks\enspace Task \thebrandtask\IfValueT{#1}{: #1}}, #2]}
+  {\end{tcolorbox}}
+
+% Quotation box: \begin{quotationbox}[Attribution] ... \end{quotationbox}
+\NewDocumentEnvironment{quotationbox}{ o O{} }
+  {\begin{tcolorbox}[brandclue=clue-quotation, title={\faQuoteLeft\enspace Quotation}, #2]
+   \itshape}
+  {\IfValueT{#1}{\par\raggedleft\upshape\small\color{brandgray}\textendash{} #1\par}%
+   \end{tcolorbox}}
+
+% Generic clue: \begin{cluebox}{color}[Title or omit for headless][tcolorbox keys]
+\NewDocumentEnvironment{cluebox}{ m o O{} }
+  {\IfValueTF{#2}
+     {\begin{tcolorbox}[brandclue=#1, title={#2}, #3]}
+     {\begin{tcolorbox}[brandclue=#1, #3]}}
+  {\end{tcolorbox}}
+
+% Key insight box: navy background, mist italic text. Use 1-2 per document.
+\NewDocumentEnvironment{insightbox}{ O{} }
+  {\begin{tcolorbox}[enhanced, unbreakable, colback=navy, colframe=navy, arc=4pt,
+     boxrule=0pt, left=14pt, right=14pt, top=12pt, bottom=12pt,
+     before skip=12pt, after skip=12pt, fontupper=\itshape\color{mist}, #1]}
+  {\end{tcolorbox}}
+
+% ============================================================
+% CODE BLOCKS
+% \begin{brandcode}[lang=python, caption={Training loop\label{code:train}}]
+%   ...
+% \end{brandcode}
+% ============================================================
+\lstdefinelanguage{json}{
+  morestring=[b]", morecomment=[l]{//},
+  literate={:}{{\textcolor{mist}{:}}}1 {,}{{\textcolor{mist}{,}}}1,
+}
+\lstdefinelanguage{yaml}{
+  morecomment=[l]{\#}, morestring=[b]", morestring=[b]',
+  keywords={true,false,null,yes,no},
+}
+\lstdefinelanguage{text}{}
+\lstalias{plain}{text}
+\lstalias{shell}{bash}
+\lstalias{console}{bash}
+
+\lstdefinestyle{brand}{
+  basicstyle=\linespread{1.05}\ttfamily\footnotesize\color{cyan},
+  keywordstyle=\color{mist}\bfseries,
+  commentstyle=\color{brandgray}\itshape,
+  stringstyle=\color{amber},
+  identifierstyle=\color{cyan},
+  numberstyle=\tiny\color{brandgray},
+  columns=fullflexible, keepspaces=true, upquote=true,
+  showstringspaces=false, breaklines=true,
+  breakatwhitespace=false, tabsize=4,
+  postbreak=\mbox{\textcolor{teal}{$\hookrightarrow$}\space},
+  extendedchars=true,
+  aboveskip=0pt, belowskip=0pt,
+}
+\lstset{style=brand, backgroundcolor=\color{navy}, frame=single, rulecolor=\color{navy},
+  framesep=8pt, xleftmargin=8pt, xrightmargin=8pt, aboveskip=10pt, belowskip=10pt}
+
+\tcbset{
+  lang/.code={\gdef\brand@codelang{#1}\tcbset{listing options app={language=#1}}},
+  caption/.code={\gdef\brand@codecaption{#1}},
+}
+\newcommand\brand@codecaption{}
+\newcommand\brand@codelang{python}
+
+\DeclareTCBListing{brandcode}{ O{} }{%
+  enhanced, listing only, breakable,
+  colback=navy, colframe=codeborder, colupper=cyan, boxrule=0.5pt, arc=4pt,
+  left=12pt, right=10pt, top=8pt, bottom=8pt,
+  borderline west={3pt}{0pt}{teal},
+  listing options={style=brand, backgroundcolor={}, frame=none,
+    xleftmargin=0pt, xrightmargin=0pt, aboveskip=0pt, belowskip=0pt},
+  lang=python, caption={},
+  #1,
+  title={\tcbox[on line, colback=teal, colframe=teal, boxrule=0pt, arc=2pt,
+      left=4pt, right=4pt, top=1pt, bottom=1pt]{%
+      \ttfamily\tiny\bfseries\color{white}\MakeUppercase{\brand@codelang}}%
+    \hfill{\ttfamily\tiny\color{brandgray}\textperiodcentered\ \textperiodcentered\ \textperiodcentered}},
+  colbacktitle=codeheader, toptitle=2pt, bottomtitle=2pt,
+  before skip=10pt, after skip=10pt,
+  after app={\ifx\brand@codecaption\@empty\else\captionof{codelisting}{\brand@codecaption}\fi},
+}
+
+% ============================================================
+% STRUCTURED BLOCKS
+% ============================================================
+
+% --- Decision framework ---
+% \begin{decision}
+%   \decisionitem{dataset < 10K samples}{Few-shot prompting}{insufficient data for fine-tuning}
+% \end{decision}
+\newenvironment{decision}
+  {\begin{tcolorbox}[enhanced, unbreakable, colback=ice, colframe=lightgray,
+     boxrule=1pt, arc=4pt, left=12pt, right=12pt, top=8pt, bottom=8pt,
+     before skip=10pt, after skip=10pt]\setlength{\parskip}{4pt}}
+  {\end{tcolorbox}}
+\newcommand\decisionitem[3]{%
+  \par\noindent\textcolor{teal}{\textbf{If #1}}\ $\rightarrow$\ \textcolor{navy}{\textbf{#2}}: #3\par}
+
+% --- Numbered steps ---
+% \begin{steps}
+%   \stepitem{Prepare dataset}{Clean, deduplicate, and split}
+% \end{steps}
+\newcounter{brandstep}
+\newenvironment{steps}{\setcounter{brandstep}{0}\par\vspace{4pt}}{\par\vspace{4pt}}
+\newcommand\stepitem[2]{%
+  \stepcounter{brandstep}%
+  \par\noindent\hspace*{8pt}%
+  \tikz[baseline=(n.base)]\node[circle, fill=teal, inner sep=1.5pt, minimum size=15pt,
+    text=white, font=\scriptsize\bfseries] (n) {\thebrandstep};%
+  \hspace{6pt}\textbf{\color{navy}#1}\ifblank{#2}{}{: #2}\par\vspace{2pt}}
+
+% --- Side-by-side comparison ---
+% \comparison{Fine-tuning}{\item a \item b}{RAG}{\item c \item d}
+\newcommand\comparison[4]{%
+  \par\noindent
+  \begin{tcbraster}[raster columns=2, raster equal height, raster column skip=12pt,
+    raster before skip=10pt, raster after skip=10pt]
+    \begin{tcolorbox}[colback=ice, colframe=teal, boxrule=1pt, arc=4pt,
+      title={#1}, colbacktitle=ice, coltitle=teal, fonttitle=\bfseries, titlerule=0pt]
+      \begin{itemize}[leftmargin=1.2em, topsep=0pt]#2\end{itemize}
+    \end{tcolorbox}
+    \begin{tcolorbox}[colback=ice, colframe=cyan, boxrule=1pt, arc=4pt,
+      title={#3}, colbacktitle=ice, coltitle=cyan, fonttitle=\bfseries, titlerule=0pt]
+      \begin{itemize}[leftmargin=1.2em, topsep=0pt]#4\end{itemize}
+    \end{tcolorbox}
+  \end{tcbraster}}
+
+% ============================================================
+% TABLES
+% \begin{brandtable}[Caption\label{tab:x}]{lccc}{Metric, Baseline, Ours, Delta}
+%   ROUGE-L & 38.2 & 44.7 & +6.5 \\
+% \end{brandtable}
+% Header cells containing commas must be wrapped in braces.
+% ============================================================
+\newcommand\brandth[1]{\multicolumn{1}{c}{\color{white}\bfseries\small #1}}
+\ExplSyntaxOn
+\tl_new:N \l__brand_header_tl
+\bool_new:N \l__brand_first_bool
+\cs_new_protected:Npn \__brand_build_header:n #1
+  {
+    \tl_clear:N \l__brand_header_tl
+    \bool_set_true:N \l__brand_first_bool
+    \clist_map_inline:nn {#1}
+      {
+        \bool_if:NTF \l__brand_first_bool
+          { \bool_set_false:N \l__brand_first_bool }
+          { \tl_put_right:Nn \l__brand_header_tl { & } }
+        \tl_put_right:Nn \l__brand_header_tl { \brandth {##1} }
+      }
+    \tl_set_eq:NN \brand@header \l__brand_header_tl
+  }
+\cs_set_eq:NN \brand@buildheader \__brand_build_header:n
+\ExplSyntaxOff
+
+\NewDocumentEnvironment{brandtable}{ o m m +b }{%
+  \par\addvspace{8pt}%
+  \begingroup
+  \centering\small
+  \brand@buildheader{#3}%
+  \rowcolors{2}{white}{ice}%
+  \arrayrulecolor{lightgray}%
+  \setlength\arrayrulewidth{0.5pt}%
+  \renewcommand\arraystretch{1.45}%
+  \begin{minipage}{\linewidth}
+    \IfValueT{#1}{\captionsetup{hypcap=false}\captionof{table}{#1}}%
+    \begin{tabularx}{\linewidth}{#2}
+      \hline\rowcolor{navy}\brand@header\\\hline
+      #4
+      \hline
+    \end{tabularx}%
+  \end{minipage}%
+  \par\endgroup
+  \addvspace{8pt}%
+}{}
+\NewDocumentEnvironment{resultstable}{ o m m +b }
+  {\IfValueTF{#1}{\begin{brandtable}[#1]{#2}{#3}#4\end{brandtable}}
+                 {\begin{brandtable}{#2}{#3}#4\end{brandtable}}}{}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+
+% ============================================================
+% FIGURES
+% \brandfigure[0.8]{architecture.png}{System architecture\label{fig:arch}}
+% ============================================================
+\NewDocumentCommand\brandfigure{O{0.8} m m}{%
+  \begin{figure}[htbp]
+    \centering
+    \includegraphics[width=#1\linewidth]{#2}
+    \caption{#3}
+  \end{figure}}
+
+% ============================================================
+% DIAGRAM PRIMITIVES (TikZ, no external tools)
+% ============================================================
+\tikzset{
+  brand node/.style={draw=teal, line width=1.2pt, fill=ice, rounded corners=4pt,
+    text=navy, font=\footnotesize\bfseries, align=center, inner sep=6pt,
+    minimum height=9mm, minimum width=22mm},
+  brand dark node/.style={brand node, fill=navy, draw=teal, text=white},
+  brand blue node/.style={brand node, fill=blue!12, draw=blue},
+  brand amber node/.style={brand node, fill=amber!15, draw=amber},
+  brand green node/.style={brand node, fill=green!15, draw=green},
+  brand decision/.style={diamond, aspect=2, draw=amber, line width=1.2pt, fill=amber!15,
+    text=navy, font=\scriptsize\bfseries, align=center, inner sep=2pt},
+  brand arrow/.style={-{Stealth[length=2.6mm]}, line width=1pt, draw=navy},
+  brand label/.style={font=\scriptsize, text=brandgray, fill=white, inner sep=1.5pt},
+  brand group/.style={draw=brandgray!60, dashed, rounded corners=6pt, inner sep=8pt},
+}
+% Framed diagram canvas: \begin{brandflow}[tikz options] ... \end{brandflow}
+\NewDocumentEnvironment{brandflow}{ O{} }
+  {\begin{tcolorbox}[enhanced, unbreakable, colback=white, colframe=lightgray,
+     boxrule=0.5pt, arc=4pt, halign=center, left=12pt, right=12pt, top=12pt, bottom=12pt]
+   \begin{tikzpicture}[node distance=8mm and 10mm, #1]}
+  {\end{tikzpicture}\end{tcolorbox}}
+
+% Horizontal bar chart: \brandbarchart[max]{Label/value/display, ...}
+\NewDocumentCommand\brandbarchart{O{1} m}{%
+  \begin{tikzpicture}[x=1pt, y=1pt]
+    \foreach \lab/\val/\disp [count=\i] in {#2} {
+      \pgfmathsetmacro\brand@w{\val/#1*0.55*\linewidth}
+      \pgfmathsetmacro\brand@y{-\i*22}
+      \pgfmathparse{{"teal","blue","cyan","navy","amber","green"}[mod(\i-1,6)]}
+      \edef\brand@bc{\pgfmathresult}
+      \node[anchor=east, font=\footnotesize\bfseries, text=navy] at (-6, \brand@y) {\lab};
+      \fill[\brand@bc, rounded corners=1.5pt] (0, \brand@y-8) rectangle ++(\brand@w, 16);
+      \node[anchor=west, font=\footnotesize, text=brandgray] at (\brand@w+4, \brand@y) {\disp};
+    }
+  \end{tikzpicture}}
+
+% Three-circle Venn diagram: \venthree{A}{B}{C}[center label]
+\NewDocumentCommand\venthree{m m m o}{%
+  \begin{tikzpicture}[font=\footnotesize\bfseries]
+    \fill[blue, opacity=0.15]  (90:1.1)  circle (1.6);
+    \fill[green, opacity=0.15] (210:1.1) circle (1.6);
+    \fill[pink, opacity=0.15]  (330:1.1) circle (1.6);
+    \draw[blue, line width=1pt]  (90:1.1)  circle (1.6);
+    \draw[green, line width=1pt] (210:1.1) circle (1.6);
+    \draw[pink, line width=1pt]  (330:1.1) circle (1.6);
+    \node[text=blue]  at (90:2.0)  {#1};
+    \node[text=green] at (210:2.0) {#2};
+    \node[text=pink]  at (330:2.0) {#3};
+    \IfValueT{#4}{\node[text=navy, font=\scriptsize\bfseries, align=center] at (0,0) {#4};}
+  \end{tikzpicture}}
+
+% pgfplots brand style: \begin{axis}[brand plot, ...]
+\pgfplotscreateplotcyclelist{brand}{
+  {blue, line width=1.4pt, mark=*, mark size=1.6pt},
+  {teal, line width=1.4pt, mark=square*, mark size=1.6pt},
+  {amber, line width=1.4pt, mark=triangle*, mark size=1.8pt},
+  {navy, line width=1.4pt, mark=diamond*, mark size=1.8pt},
+  {green, line width=1.4pt, mark=pentagon*, mark size=1.8pt},
+}
+\pgfplotsset{
+  brand plot/.style={
+    width=0.85\linewidth, height=6cm,
+    cycle list name=brand,
+    axis line style={lightgray}, tick style={lightgray},
+    tick label style={font=\scriptsize, text=brandgray},
+    label style={font=\footnotesize, text=navy},
+    grid=major, grid style={lightgray, dashed},
+    legend style={font=\scriptsize, draw=lightgray, fill=white, text=navy},
+    legend cell align=left,
+  },
+}
+
+% ============================================================
+% BIBLIOGRAPHY — \brandbibliography{references}
+% Prints every .bib entry (like Typst's full: true); cite inline with \cite{key}.
+% ============================================================
+\renewcommand\refname{References}
+\NewDocumentCommand\brandbibliography{s m}{%
+  \IfBooleanF{#1}{\nocite{*}}%
+  \bibliographystyle{IEEEtran}%
+  \bibliography{#2}}
+
+% ============================================================
+% CLOSING ELEMENTS
+% ============================================================
+
+% --- Brand footer (legacy; prefer \brandcta) ---
+\newcommand\brandfooter{%
+  \divider
+  {\footnotesize\color{brandgray}\itshape
+   \brandname, \brandtitle{} \textperiodcentered{} \brandslogan\\
+   \branddescriptor\\
+   \brandgithub{} \textperiodcentered{} \brandhuggingface{} \textperiodcentered{} \brandlocation\par}}
+
+% --- LinkedIn call to action on its own final page: \brandcta[qr.png] ---
+\NewDocumentCommand\brandcta{O{linkedin-qr.png}}{%
+  \clearpage
+  \vspace*{\fill}
+  \noindent
+  \begin{minipage}[c]{\dimexpr\linewidth-120pt\relax}
+    \raggedright
+    {\fontsize{18}{22}\selectfont\bfseries\color{navy}Follow me for More AI Content\par}
+    \vspace{8pt}
+    {\color{navy}If you found these notes useful, connect with me on LinkedIn for more deep
+     dives into Machine Learning, Artificial Intelligence, and Computer Vision.\par}
+    \vspace{12pt}
+    \href{\brandlinkedinurl}{\fontsize{13}{16}\selectfont\bfseries\color{blue}\brandname{} on LinkedIn}\par
+    \vspace{4pt}
+    {\footnotesize\color{brandgray}Scan the QR code or click the link above\par}
+  \end{minipage}\hfill
+  \begin{minipage}[c]{100pt}
+    \includegraphics[width=100pt]{#1}
+  \end{minipage}
+  \vspace*{\fill}
+}
+
+\endinput

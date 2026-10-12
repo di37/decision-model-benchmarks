@@ -1,0 +1,58 @@
+[
+  {
+    "provider": "clef-flash",
+    "cases": 200,
+    "completed": 200,
+    "errors": 0,
+    "accuracy": 0.985,
+    "macro_f1": 0.9844559585492227,
+    "latency_p50_ms": 102.53959859255701,
+    "latency_p95_ms": 140.36868136608973,
+    "latency_mean_ms": 107.30256158858538,
+    "log_loss": 0.05000174239673875,
+    "brier_score": 0.0129326259,
+    "ece": 0.04492099999999995
+  },
+  {
+    "provider": "clm",
+    "cases": 200,
+    "completed": 200,
+    "errors": 0,
+    "accuracy": 0.655,
+    "macro_f1": 0.6345423143350605,
+    "latency_p50_ms": 68.69851553346962,
+    "latency_p95_ms": 74.75575879216194,
+    "latency_mean_ms": 66.7011322278995,
+    "log_loss": 0.9994917309139658,
+    "brier_score": 0.5262518276018643,
+    "ece": 0.15779454267322449
+  },
+  {
+    "provider": "jev",
+    "cases": 200,
+    "completed": 200,
+    "errors": 0,
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "latency_p50_ms": 311.96306098718196,
+    "latency_p95_ms": 408.3713953150436,
+    "latency_mean_ms": 328.24043592321686,
+    "log_loss": 0.002651896865311626,
+    "brier_score": 0.0005520000000000001,
+    "ece": 0.0025000000000000343
+  },
+  {
+    "provider": "laya",
+    "cases": 200,
+    "completed": 200,
+    "errors": 0,
+    "accuracy": 0.94,
+    "macro_f1": 0.9360967184801382,
+    "latency_p50_ms": 8.916069869883358,
+    "latency_p95_ms": 9.589622856583446,
+    "latency_mean_ms": 8.949597557075322,
+    "log_loss": 0.2289469289050998,
+    "brier_score": 0.11319715670000001,
+    "ece": 0.11379800000000001
+  }
+]
